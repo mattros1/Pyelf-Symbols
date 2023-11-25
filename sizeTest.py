@@ -24,7 +24,7 @@ class ELFAnalyzer:
               'padding': 0
           }
 
-      #sort by adress to ensure contiguous symbols
+      #sort by address to ensure contiguous symbols
       sorted_names = sorted(sym_info.keys(),
                             key=lambda name: sym_info[name]['address'],
                             reverse=False)
