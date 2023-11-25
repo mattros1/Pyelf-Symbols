@@ -15,8 +15,8 @@ class ELFAnalyzer:
       for section in elf.iter_sections():
         if not isinstance(section, SymbolTableSection):
           continue
-        #iterate through each symbol
-        for cnt, symbol in enumerate(section.iter_symbols()):
+        #iterate through each symbol and 
+        for symbol in section.iter_symbols():
           name = symbol.name
           addr = symbol['st_value']
           size = symbol['st_size']
@@ -29,7 +29,7 @@ class ELFAnalyzer:
                              reverse=False)
       prev = None
       prevName = None
-      #assign padding based on difference in addresses
+      #assign padding based on difference in address
       for sName, info in sortedSymbols:
         if (prev != None):
           self.sInfo[prevName][
